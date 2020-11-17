@@ -19,6 +19,8 @@ class SearchList extends Component {
 			<div>
 
 				<input type="text" name="name" onChange={this.handleChange} />
+				<button type="submit" onClick={this.handleRandom}>Get Random Gif</button>
+				<button type="submit" onClick={this.handleTrending}>Get Trending Gif</button>
 				<button type="submit" onClick={this.handleSubmit}>Get Gif</button>
 				<h1> <img src={this.state.url}></img></h1>
 
@@ -36,7 +38,7 @@ class SearchList extends Component {
 		})
 	}
 	handleSubmit = () => {
-		const apikey = 'e6NrlE9MYfATwqAQZ3cqO0tTPueWMvVr'
+
 		let searchString = this.state.searchString
 		let response = axios.get(`${process.env.REACT_APP_BASE_URL}?api_key=${process.env.REACT_APP_API_KEY}&q=${searchString}`,
 			{
