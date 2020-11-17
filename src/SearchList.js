@@ -27,7 +27,9 @@ class SearchList extends Component {
 		)
 	}
 	handleChange = (e) => {
+		//e.preventDefault();
 		console.log('search string====>', e.target.value)
+		console.log('URL IS ', process.env.REACT_APP_BASE_URL)
 
 		this.setState({
 			searchString: e.target.value,
@@ -36,8 +38,7 @@ class SearchList extends Component {
 	handleSubmit = () => {
 		const apikey = 'e6NrlE9MYfATwqAQZ3cqO0tTPueWMvVr'
 		let searchString = this.state.searchString
-
-		let response = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${searchString}`,
+		let response = axios.get(`${process.env.REACT_APP_BASE_URL}?api_key=${process.env.REACT_APP_API_KEY}&q=${searchString}`,
 			{
 				headers: {
 					'Content-Type': 'application/json'
