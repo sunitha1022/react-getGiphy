@@ -27,15 +27,16 @@ class SearchList extends Component {
 		)
 	}
 	handleChange = (e) => {
-		console.log('search string', e.target.value,)
+		console.log('search string====>', e.target.value)
+
 		this.setState({
 			searchString: e.target.value,
 		})
 	}
 	handleSubmit = () => {
 		const apikey = 'e6NrlE9MYfATwqAQZ3cqO0tTPueWMvVr'
-		let searchString = this.props.searchString
-		console.log('searchString', searchString);
+		let searchString = this.state.searchString
+
 		let response = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${searchString}`,
 			{
 				headers: {
@@ -50,7 +51,7 @@ class SearchList extends Component {
 				})
 			})
 			.catch((error) => {
-				console.log('API ERROR:', error);
+				console.log('API ERROR:===>', error);
 			});
 		console.log(response);
 	}

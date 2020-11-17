@@ -6,6 +6,7 @@ import SearchList from './SearchList';
 
 class App extends Component {
 
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -17,6 +18,7 @@ class App extends Component {
 
 
 	render() {
+		console.log(process.env)
 		return (
 			<>
 				<h1>Giphy</h1>
